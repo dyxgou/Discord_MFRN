@@ -1,0 +1,25 @@
+{
+  "name": "discord",
+  "version": "1.0.0",
+  "workspaces" : [
+    "backend",
+    "frontend"
+  ],
+  "scripts": {
+    "co" : "sui-mono commit"
+  },
+  "description": "This is a discord clone",
+  "main": "index.js",
+  "author": "iDiego",
+  "license": "MIT",
+  "private": true ,
+  "devDependencies": {
+    "standard": "17.0.0",
+    "@typescript-eslint/eslint-plugin": "5.27.0",
+    "@typescript-eslint/parser": "5.27.0",
+    "@s-ui/mono": "2.27.0"
+  },
+  "eslintConfig": {
+    "extends" : [ ".eslintrc.json" ]
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "extends" : "./node_modules/standard/eslintrc.json",
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint"],
+  "rules": {
+    "quotes" : "off",
+    "brace-style" :"off",
+    "indent" : "off",
+    "@typescript-eslint/indent": ["off"],
+    "comma-spacing" : "off",
+    "key-spacing" : "off",
+    "comma-dangle" : "off",
+    "no-void" : "off"
+  }
+}
