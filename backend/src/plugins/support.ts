@@ -1,5 +1,5 @@
 import fp from 'fastify-plugin'
-import checkJWT, { IPayload, IUser } from '../services/checkJWT'
+import { IPayload, IUser } from '../services/checkJWT'
 import connectDB, { IStore } from '../services/connectDB'
 import regsiterJWT from '../services/registerJWT'
 
@@ -11,7 +11,6 @@ export interface SupportPluginOptions {
 // to export the decorators to the outer scope
 export default fp<SupportPluginOptions>(async (fastify, opts) => {
   void fastify.register(connectDB)
-  void fastify.register(checkJWT)
   void fastify.register(regsiterJWT)
 })
 
