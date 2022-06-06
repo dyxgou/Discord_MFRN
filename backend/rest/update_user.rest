@@ -1,0 +1,8 @@
+PUT http://localhost:8000/user/update HTTP/1.1
+Content-Type: : application/json
+
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjljMzNkNzUxMWViZGI3YjQwN2NkNDciLCJpYXQiOjE2NTQ0ODk1Mjd9.pYGHmGMip6dypGU7zxtA60Slmd-_L1QFi3YD3k9tuQM
+
+{
+  "username" : "diego5614"
+}
