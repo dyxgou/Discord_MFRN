@@ -1,23 +1,19 @@
-import { FastifyLoggerInstance, FastifyPluginAsync, FastifyRequest } from "fastify"
+import { FastifyLoggerInstance, FastifyReply, FastifyRequest } from "fastify"
 import { RouteGenericInterface } from "fastify/types/route"
-import { IncomingMessage, Server } from "http"
-import fp from "fastify-plugin"
+import { IncomingMessage, Server, ServerResponse } from "http"
 
 type Req = FastifyRequest<RouteGenericInterface, Server, IncomingMessage, unknown, FastifyLoggerInstance>
+type Res = FastifyReply<Server, IncomingMessage, ServerResponse, RouteGenericInterface, unknown>
 
-const checkJWT : FastifyPluginAsync = fp(async (fastify , options) =>
+const checkJWT = async (req : Req , res : Res) =>
 {
-  fastify.decorate("auth" , async (req : Req) =>
-  {
-    try {
-      await req.jwtVerify()
-    } catch (error) {
-      throw fastify.httpErrors.unauthorized("Invalid Token")
-    }
-  })
-})
+  try {
+    await req.jwtVerify()
+  } catch (error) {
+    return res.status(401).send("Invalid Token")
+  }
+}
 
 export default checkJWT
-export type IAuth = (req : Req) => Promise<void>
 export type IUser = { userId : string , iat : number , exp : number }
 export type IPayload = { userId : string }
